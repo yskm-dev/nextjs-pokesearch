@@ -1,17 +1,19 @@
 'use client';
-import { PokeList } from '@/app/_components/PokeList';
+
+import { PokeList } from '@/app/type/[name]/_components/PokeList';
 import { PokeDetail } from '@/components/PokeDetail';
 import { PokeTypeSearch } from '@/components/PokeTypeSearch';
 import { QCProvider } from '@/providers/QCProvider';
 import { useState } from 'react';
-import styles from './page.module.scss';
+import styles from './PokeTypeSection.module.scss';
 
-export default function Page() {
-  const [selectedType, setSelectedType] = useState('');
+type Props = {
+  name: string;
+};
+
+export function PokeTypeSection({ name }: Props) {
+  const [selectedType, setSelectedType] = useState(name);
   const [selectedPokemon, setSelectedPokemon] = useState('');
-  const [pageURL, setPageURL] = useState<string | null>(
-    'https://pokeapi.co/api/v2/pokemon?limit=20'
-  );
 
   return (
     <QCProvider>
@@ -21,8 +23,7 @@ export default function Page() {
       />
       <div className={styles.content}>
         <PokeList
-          pageURL={pageURL}
-          setPageURL={setPageURL}
+          name={name}
           selectedPokemon={selectedPokemon}
           onSelect={setSelectedPokemon}
         />

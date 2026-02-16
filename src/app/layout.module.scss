@@ -12,12 +12,30 @@
 /* ── Breadcrumb ── */
 
 .breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 6px;
   padding: var(--margin-s) var(--margin-l);
   font-size: var(--font-size-small);
   color: var(--color-secondary);
+
+  ol {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    &:not(:last-child)::after {
+      content: "/";
+      color: var(--color-secondary);
+      font-size: 0.625rem;
+    }
+  }
 }
 
 .breadcrumbLink {
@@ -27,11 +45,8 @@
 
   &:hover {
     color: var(--color-text);
+    text-decoration: underline;
   }
-}
-
-.breadcrumbSeparator {
-  font-size: 0.625rem;
 }
 
 .breadcrumbCurrent {
@@ -125,24 +140,60 @@
   flex-shrink: 0;
 }
 
-.typeIcon[data-type="normal"] { background-color: #acacac; }
-.typeIcon[data-type="fire"] { background-color: #ee8130; }
-.typeIcon[data-type="water"] { background-color: #6390f0; }
-.typeIcon[data-type="electric"] { background-color: #f7d02c; }
-.typeIcon[data-type="grass"] { background-color: #7ac74c; }
-.typeIcon[data-type="ice"] { background-color: #96d9d6; }
-.typeIcon[data-type="fighting"] { background-color: #c22e28; }
-.typeIcon[data-type="poison"] { background-color: #a33ea1; }
-.typeIcon[data-type="ground"] { background-color: #e2bf65; }
-.typeIcon[data-type="flying"] { background-color: #8fadf3; }
-.typeIcon[data-type="psychic"] { background-color: #f95587; }
-.typeIcon[data-type="bug"] { background-color: #a6b91a; }
-.typeIcon[data-type="rock"] { background-color: #b6a136; }
-.typeIcon[data-type="ghost"] { background-color: #735797; }
-.typeIcon[data-type="dragon"] { background-color: #6f35fc; }
-.typeIcon[data-type="dark"] { background-color: #705746; }
-.typeIcon[data-type="steel"] { background-color: #b7b7ce; }
-.typeIcon[data-type="fairy"] { background-color: #d685ad; }
+.typeIcon[data-type="normal"] {
+  background-color: #acacac;
+}
+.typeIcon[data-type="fire"] {
+  background-color: #ee8130;
+}
+.typeIcon[data-type="water"] {
+  background-color: #6390f0;
+}
+.typeIcon[data-type="electric"] {
+  background-color: #f7d02c;
+}
+.typeIcon[data-type="grass"] {
+  background-color: #7ac74c;
+}
+.typeIcon[data-type="ice"] {
+  background-color: #96d9d6;
+}
+.typeIcon[data-type="fighting"] {
+  background-color: #c22e28;
+}
+.typeIcon[data-type="poison"] {
+  background-color: #a33ea1;
+}
+.typeIcon[data-type="ground"] {
+  background-color: #e2bf65;
+}
+.typeIcon[data-type="flying"] {
+  background-color: #8fadf3;
+}
+.typeIcon[data-type="psychic"] {
+  background-color: #f95587;
+}
+.typeIcon[data-type="bug"] {
+  background-color: #a6b91a;
+}
+.typeIcon[data-type="rock"] {
+  background-color: #b6a136;
+}
+.typeIcon[data-type="ghost"] {
+  background-color: #735797;
+}
+.typeIcon[data-type="dragon"] {
+  background-color: #6f35fc;
+}
+.typeIcon[data-type="dark"] {
+  background-color: #705746;
+}
+.typeIcon[data-type="steel"] {
+  background-color: #b7b7ce;
+}
+.typeIcon[data-type="fairy"] {
+  background-color: #d685ad;
+}
 
 .typeIconImage {
   display: block;
@@ -373,7 +424,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .muted {

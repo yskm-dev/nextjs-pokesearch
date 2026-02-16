@@ -2,15 +2,15 @@
 @use "../variables" as var;
 
 :root {
-  --color-text: #151b22;
-  --color-background: #f2f5f8;
-  --color-header: #f2f5f8a0;
-  --color-selected: #f2f5f8;
-  --color-unselected: #b4b8bc;
-  --color-primary: #ff4d00;
-  --color-primary-hover: rgb(0 73 156);
-  --color-secondary: #4c6887;
-  --color-border: #c1cbd6;
+  --color-text: #1e293b;
+  --color-background: #f8fafc;
+  --color-header: #f8fafca0;
+  --color-selected: #f1f5f9;
+  --color-unselected: #94a3b8;
+  --color-primary: #dc2626;
+  --color-primary-hover: #b91c1c;
+  --color-secondary: #64748b;
+  --color-border: #e2e8f0;
   --100vw: 100vw;
   --1rem: 1rem;
   --window-width: calc(
@@ -58,6 +58,9 @@
   --margin-s: #{rem(16)};
   --margin-xs: #{rem(8)};
   --margin-xxs: #{rem(4)};
+  --border-radius-s: #{rem(8)};
+  --border-radius-m: #{rem(12)};
+  --border-radius-l: #{rem(16)};
 
   @include mq-lt("md") {
     --font-size-heading-1: #{rem(26)};
@@ -77,29 +80,29 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  html[data-theme="system"] {
-    --color-text: #f2f5f8;
-    --color-secondary: #859cb7;
-    --color-background: #151b22;
-    --color-header: #151b22a0;
-    --color-primary: #ff8c00;
-    --color-selected: #030303;
-    --color-unselected: #222;
-    --color-accent: #007aff;
-    --color-border: #303943;
-  }
+  // :root {
+  //   --color-text: #f1f5f9;
+  //   --color-secondary: #94a3b8;
+  //   --color-background: #0f172a;
+  //   --color-header: #0f172aa0;
+  //   --color-primary: #ef4444;
+  //   --color-selected: #1e293b;
+  //   --color-unselected: #334155;
+  //   --color-accent: #007aff;
+  //   --color-border: #334155;
+  // }
 }
 
 html[data-theme="dark"] {
-  --color-text: #f2f5f8;
-  --color-secondary: #859cb7;
-  --color-background: #151b22;
-  --color-header: #151b22a0;
-  --color-primary: #ff8c00;
-  --color-selected: #030303;
-  --color-unselected: #222;
+  --color-text: #f1f5f9;
+  --color-secondary: #94a3b8;
+  --color-background: #0f172a;
+  --color-header: #0f172aa0;
+  --color-primary: #ef4444;
+  --color-selected: #1e293b;
+  --color-unselected: #334155;
   --color-accent: #007aff;
-  --color-border: #303943;
+  --color-border: #334155;
 }
 
 @property --100vw {

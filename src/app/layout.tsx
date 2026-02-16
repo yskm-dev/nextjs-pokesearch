@@ -1,9 +1,11 @@
 import '@/styles/globals.scss';
-import { PT_Serif } from 'next/font/google';
+import { Inter } from 'next/font/google';
+import Link from 'next/link';
+import styles from './layout.module.scss';
 
-const PTSerifFont = PT_Serif({
-  weight: ['400', '700'],
+const interFont = Inter({
   subsets: ['latin'],
+  display: 'swap',
 });
 
 export default function RootLayout({
@@ -13,8 +15,38 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" suppressHydrationWarning>
-      <body className={PTSerifFont.className}>
-        {children}
+      <body className={interFont.className}>
+        <nav className={styles.breadcrumb} aria-label="パンくずリスト">
+          <ol>
+            <li>
+              <a href="https://yskm.dev/" className={styles.breadcrumbLink}>
+                yskm-dev
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://yskm.dev/sketch/"
+                className={styles.breadcrumbLink}
+              >
+                sketch
+              </a>
+            </li>
+            <li aria-current="page">
+              <span className={styles.breadcrumbCurrent}>PokeSearch</span>
+            </li>
+          </ol>
+        </nav>
+        <main>
+          <div className={styles.page}>
+            <header className={styles.header}>
+              <Link href="/">
+                <h1 className={styles.title}>PokeSearch</h1>
+              </Link>
+              <p className={styles.subtitle}>ポケモン図鑑を検索しよう</p>
+            </header>
+            {children}
+          </div>
+        </main>
       </body>
     </html>
   );

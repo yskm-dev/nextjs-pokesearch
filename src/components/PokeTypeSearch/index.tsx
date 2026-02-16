@@ -1,0 +1,1 @@
+export { PokeTypeSearch } from './PokeTypeSearch';

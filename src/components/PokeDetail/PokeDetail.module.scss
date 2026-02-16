@@ -9,36 +9,6 @@
   gap: var(--margin-l);
 }
 
-/* ── Breadcrumb ── */
-
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: var(--margin-s) var(--margin-l);
-  font-size: var(--font-size-small);
-  color: var(--color-secondary);
-}
-
-.breadcrumbLink {
-  color: var(--color-secondary);
-  text-decoration: none;
-  transition: color 120ms ease;
-
-  &:hover {
-    color: var(--color-text);
-  }
-}
-
-.breadcrumbSeparator {
-  font-size: 0.625rem;
-}
-
-.breadcrumbCurrent {
-  color: var(--color-text);
-  font-weight: 600;
-}
-
 /* ── Header ── */
 
 .header {
@@ -204,18 +174,13 @@
   transition: background 120ms ease;
 
   &:hover {
-    background: color-mix(in srgb, var(--color-secondary) 12%, transparent);
+    background: var(--color-selected);
   }
 }
 
 .listItemActive {
-  background: var(--color-secondary);
-  color: #fff;
+  background: var(--color-selected);
   font-weight: 700;
-
-  &:hover {
-    background: color-mix(in srgb, var(--color-secondary) 85%, transparent);
-  }
 }
 
 .listName {
@@ -235,7 +200,7 @@
 
 .paginationButton {
   flex: 1;
-  padding: 6px 12px;
+  padding: 6px 0;
   border-radius: var(--border-radius-s);
   border: 1px solid var(--color-border);
   background: transparent;
@@ -350,6 +315,49 @@
 .statValue {
   font-size: 1.125rem;
   font-weight: 700;
+}
+
+/* ── Stats Table ── */
+
+.statsTable {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 8px;
+  margin-top: var(--margin-s);
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: 120px 40px 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.statsName {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--color-secondary);
+}
+
+.statsValue {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.statsGaugeTrack {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.statsGaugeFill {
+  height: 100%;
+  border-radius: 3px;
+  background: var(--color-text);
+  transition: width 0.4s ease;
 }
 
 /* ── States ── */

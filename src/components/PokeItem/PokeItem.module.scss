@@ -9,36 +9,6 @@
   gap: var(--margin-l);
 }
 
-/* ── Breadcrumb ── */
-
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: var(--margin-s) var(--margin-l);
-  font-size: var(--font-size-small);
-  color: var(--color-secondary);
-}
-
-.breadcrumbLink {
-  color: var(--color-secondary);
-  text-decoration: none;
-  transition: color 120ms ease;
-
-  &:hover {
-    color: var(--color-text);
-  }
-}
-
-.breadcrumbSeparator {
-  font-size: 0.625rem;
-}
-
-.breadcrumbCurrent {
-  color: var(--color-text);
-  font-weight: 600;
-}
-
 /* ── Header ── */
 
 .header {

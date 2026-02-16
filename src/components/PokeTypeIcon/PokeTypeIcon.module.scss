@@ -9,36 +9,6 @@
   gap: var(--margin-l);
 }
 
-/* ── Breadcrumb ── */
-
-.breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: var(--margin-s) var(--margin-l);
-  font-size: var(--font-size-small);
-  color: var(--color-secondary);
-}
-
-.breadcrumbLink {
-  color: var(--color-secondary);
-  text-decoration: none;
-  transition: color 120ms ease;
-
-  &:hover {
-    color: var(--color-text);
-  }
-}
-
-.breadcrumbSeparator {
-  font-size: 0.625rem;
-}
-
-.breadcrumbCurrent {
-  color: var(--color-text);
-  font-weight: 600;
-}
-
 /* ── Header ── */
 
 .header {
@@ -204,18 +174,13 @@
   transition: background 120ms ease;
 
   &:hover {
-    background: color-mix(in srgb, var(--color-secondary) 12%, transparent);
+    background: var(--color-selected);
   }
 }
 
 .listItemActive {
-  background: var(--color-secondary);
-  color: #fff;
+  background: var(--color-selected);
   font-weight: 700;
-
-  &:hover {
-    background: color-mix(in srgb, var(--color-secondary) 85%, transparent);
-  }
 }
 
 .listName {
@@ -235,7 +200,7 @@
 
 .paginationButton {
   flex: 1;
-  padding: 6px 12px;
+  padding: 6px 0;
   border-radius: var(--border-radius-s);
   border: 1px solid var(--color-border);
   background: transparent;
