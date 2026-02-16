@@ -1,0 +1,282 @@
+@use "@/styles/variables" as var;
+@use "@/styles/extension" as *;
+
+.page {
+  padding: var(--margin-xl) var(--margin-l);
+  display: grid;
+  gap: var(--margin-xl);
+}
+
+.header {
+}
+
+.kicker {
+  font-size: var(--font-size-small);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-secondary);
+}
+
+.title {
+  margin-top: var(--margin-s);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 700;
+}
+
+.description {
+  margin-top: var(--margin-s);
+  max-width: 520px;
+  font-weight: 500;
+  color: var(--color-secondary);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--margin-m);
+  padding: var(--margin-m);
+  border-radius: var(--border-radius-m);
+  border: 1px solid var(--color-border);
+  background: var(--color-selected);
+}
+
+.statLabel {
+  font-size: var(--font-size-small);
+  color: var(--color-secondary);
+}
+
+.statValue {
+  font-size: var(--font-size-heading-4);
+  font-weight: 600;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(280px, 1fr);
+  gap: var(--margin-xl);
+}
+
+.listPanel,
+.detailPanel {
+  border-radius: var(--border-radius-m);
+  border: 1px solid var(--color-border);
+  padding: var(--margin-l);
+  background: var(--color-selected);
+}
+
+.listHeader,
+.detailHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--margin-m);
+}
+
+.listActions {
+  display: flex;
+  gap: var(--margin-s);
+}
+
+.button {
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--border-radius-s);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  font-weight: 600;
+  transition:
+    transform 120ms ease,
+    border-color 120ms ease;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button:not(:disabled):hover {
+  transform: translateY(-1px);
+  border-color: var(--color-text);
+}
+
+.list {
+  display: grid;
+  gap: var(--margin-s);
+  margin: var(--margin-m) 0 0;
+  padding: 0;
+  list-style: none;
+  max-height: 520px;
+  overflow: auto;
+}
+
+.listItem,
+.listItemActive {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--margin-s);
+  padding: var(--margin-s) var(--margin-m);
+  border-radius: var(--border-radius-s);
+  border: 1px solid transparent;
+  background: var(--color-background);
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.listItemActive {
+  border-color: var(--color-text);
+  background: var(--color-selected);
+}
+
+.listName {
+  flex: 1;
+  text-align: left;
+}
+
+.detailCard {
+  display: grid;
+  gap: var(--margin-m);
+  align-items: center;
+  margin-top: var(--margin-m);
+}
+
+.detailMedia {
+  display: grid;
+  place-items: center;
+  padding: var(--margin-m);
+  background: var(--color-background);
+  border-radius: var(--border-radius-m);
+  border: 1px solid var(--color-border);
+}
+
+.detailMedia img {
+  width: min(220px, 100%);
+  height: auto;
+}
+
+.imageFallback {
+  padding: var(--margin-m);
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.detailName {
+  text-transform: capitalize;
+  font-size: var(--font-size-heading-3);
+  margin-bottom: var(--margin-s);
+}
+
+.detailMeta {
+  margin: 0;
+  color: var(--color-secondary);
+}
+
+.typeIcons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--margin-xs);
+  align-items: center;
+}
+
+.typeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #00000014;
+  border-radius: 999px;
+  background-color: #acacac;
+}
+
+.typeIcon[data-type="normal"] {
+  background-color: #acacac;
+}
+
+.typeIcon[data-type="fire"] {
+  background-color: #ee8130;
+}
+
+.typeIcon[data-type="water"] {
+  background-color: #6390f0;
+}
+
+.typeIcon[data-type="electric"] {
+  background-color: #f7d02c;
+}
+
+.typeIcon[data-type="grass"] {
+  background-color: #7ac74c;
+}
+
+.typeIcon[data-type="ice"] {
+  background-color: #96d9d6;
+}
+
+.typeIcon[data-type="fighting"] {
+  background-color: #c22e28;
+}
+
+.typeIcon[data-type="poison"] {
+  background-color: #a33ea1;
+}
+
+.typeIcon[data-type="ground"] {
+  background-color: #e2bf65;
+}
+
+.typeIcon[data-type="flying"] {
+  background-color: #8fadf3;
+}
+
+.typeIcon[data-type="psychic"] {
+  background-color: #f95587;
+}
+
+.typeIcon[data-type="bug"] {
+  background-color: #a6b91a;
+}
+
+.typeIcon[data-type="rock"] {
+  background-color: #b6a136;
+}
+
+.typeIcon[data-type="ghost"] {
+  background-color: #735797;
+}
+
+.typeIcon[data-type="dragon"] {
+  background-color: #6f35fc;
+}
+
+.typeIcon[data-type="dark"] {
+  background-color: #705746;
+}
+
+.typeIcon[data-type="steel"] {
+  background-color: #b7b7ce;
+}
+
+.typeIcon[data-type="fairy"] {
+  background-color: #d685ad;
+}
+
+.typeIconImage {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.muted {
+  color: var(--color-secondary);
+}
+
+.error {
+  color: #b42318;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}

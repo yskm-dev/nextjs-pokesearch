@@ -1,0 +1,115 @@
+@use "../extension" as *;
+@use "../variables" as var;
+
+:root {
+  --color-text: #151b22;
+  --color-background: #f2f5f8;
+  --color-header: #f2f5f8a0;
+  --color-selected: #f2f5f8;
+  --color-unselected: #b4b8bc;
+  --color-primary: #ff4d00;
+  --color-primary-hover: rgb(0 73 156);
+  --color-secondary: #4c6887;
+  --color-border: #c1cbd6;
+  --100vw: 100vw;
+  --1rem: 1rem;
+  --window-width: calc(
+    tan(atan2(var(--100vw), 1px)) *
+      min(1, #{var.$rem} / tan(atan2(var(--1rem), 1px)))
+  );
+
+  @if var.$full-liquid {
+    /**
+     * 現在最大幅よりどれくらい大きくしているか
+     */
+    --scale: max(1, var(--window-width) / #{var.$max-width});
+
+    /**
+     *  --scale を元に px と rem を計算
+     */
+    --px: #{calc(1px * var(--scale))};
+    --rem: #{calc(1rem * var(--scale))};
+  }
+
+  --max-width: #{max(px(var.$max-width), rem(var.$max-width))};
+  --font-size-base: #{rem(16)};
+  --line-height-base: 1.7;
+  --font-size-heading-1: #{rem(30)};
+  --line-height-heading-1: 1.7;
+  --font-size-heading-2: #{rem(24)};
+  --line-height-heading-2: 1.7;
+  --font-size-heading-3: #{rem(20)};
+  --line-height-heading-3: 1.7;
+  --font-size-heading-4: #{rem(16)};
+  --line-height-heading-4: 1.7;
+  --font-size-heading-5: #{rem(14)};
+  --line-height-heading-5: 1.7;
+  --font-size-heading-6: #{rem(12)};
+  --line-height-heading-6: 1.7;
+  --font-size-large: #{rem(20)};
+  --line-height-large: 1.7;
+  --font-size-medium: #{rem(14)};
+  --font-size-small: #{rem(12)};
+  --line-height-small: 1.7;
+  --margin-xxl: #{rem(120)};
+  --margin-xl: #{rem(80)};
+  --margin-l: #{rem(48)};
+  --margin-m: #{rem(24)};
+  --margin-s: #{rem(16)};
+  --margin-xs: #{rem(8)};
+  --margin-xxs: #{rem(4)};
+
+  @include mq-lt("md") {
+    --font-size-heading-1: #{rem(26)};
+    --font-size-heading-2: #{rem(22)};
+    --font-size-heading-3: #{rem(18)};
+    --font-size-large: #{rem(20)};
+    --font-size-medium: #{rem(14)};
+    --font-size-small: #{rem(12)};
+    --margin-xxl: #{rem(80)};
+    --margin-xl: #{rem(40)};
+    --margin-l: #{rem(24)};
+    --margin-m: #{rem(12)};
+    --margin-s: #{rem(8)};
+    --margin-xs: #{rem(4)};
+    --margin-xxs: #{rem(2)};
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  html[data-theme="system"] {
+    --color-text: #f2f5f8;
+    --color-secondary: #859cb7;
+    --color-background: #151b22;
+    --color-header: #151b22a0;
+    --color-primary: #ff8c00;
+    --color-selected: #030303;
+    --color-unselected: #222;
+    --color-accent: #007aff;
+    --color-border: #303943;
+  }
+}
+
+html[data-theme="dark"] {
+  --color-text: #f2f5f8;
+  --color-secondary: #859cb7;
+  --color-background: #151b22;
+  --color-header: #151b22a0;
+  --color-primary: #ff8c00;
+  --color-selected: #030303;
+  --color-unselected: #222;
+  --color-accent: #007aff;
+  --color-border: #303943;
+}
+
+@property --100vw {
+  syntax: "<length>";
+  initial-value: 0;
+  inherits: false;
+}
+
+@property --1rem {
+  syntax: "<length>";
+  initial-value: 0;
+  inherits: false;
+}
