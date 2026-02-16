@@ -8,7 +8,6 @@ export const PokeList = memo(function PokeList({
   selectedPokemon,
   onSelect,
 }: {
-  name: string;
   selectedPokemon: string;
   onSelect: (name: string) => void;
 }) {

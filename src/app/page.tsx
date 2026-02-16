@@ -9,9 +9,6 @@ import styles from './page.module.scss';
 export default function Page() {
   const [selectedType, setSelectedType] = useState('');
   const [selectedPokemon, setSelectedPokemon] = useState('');
-  const [pageURL, setPageURL] = useState<string | null>(
-    'https://pokeapi.co/api/v2/pokemon?limit=20'
-  );
 
   return (
     <QCProvider>
@@ -21,8 +18,6 @@ export default function Page() {
       />
       <div className={styles.content}>
         <PokeList
-          pageURL={pageURL}
-          setPageURL={setPageURL}
           selectedPokemon={selectedPokemon}
           onSelect={setSelectedPokemon}
         />

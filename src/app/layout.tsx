@@ -8,6 +8,11 @@ const interFont = Inter({
   display: 'swap',
 });
 
+export const metadata = {
+  title: 'PokeSearch - yskm_dev',
+  description: 'ポケモン図鑑を検索しよう',
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -36,6 +41,38 @@ export default function RootLayout({
             </li>
           </ol>
         </nav>
+        <div className={styles.techSection}>
+          <span className={styles.techTitle}>Built with:</span>
+          <ul className={styles.techList}>
+            <li>
+              <a
+                href="https://pokeapi.co/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                PokéAPI
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://nextjs.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Next.js
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/duiker101/pokemon-type-svg-icons"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                duiker101/pokemon-type-svg-icons
+              </a>
+            </li>
+          </ul>
+        </div>
         <main>
           <div className={styles.page}>
             <header className={styles.header}>
