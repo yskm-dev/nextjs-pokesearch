@@ -10,3 +10,7 @@ binding = "ASSETS"
 [[services]]
 binding = "WORKER_SELF_REFERENCE"
 service = "nextjs-pokesearch"
+
+[route]
+pattern = "*pokesearch.yskm.dev/*"
+zone_name = "pokesearch.yskm.dev"
