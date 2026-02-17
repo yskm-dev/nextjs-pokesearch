@@ -1,6 +1,7 @@
 import '@/styles/globals.scss';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import { Suspense } from 'react';
 import styles from './layout.module.scss';
 
 const interFont = Inter({
@@ -81,7 +82,7 @@ export default function RootLayout({
               </Link>
               <p className={styles.subtitle}>ポケモン図鑑を検索しよう</p>
             </header>
-            {children}
+            <Suspense>{children}</Suspense>
           </div>
         </main>
       </body>

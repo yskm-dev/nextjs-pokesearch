@@ -1,21 +1,24 @@
-import { NextRequest, NextResponse } from 'next/server';
+async function fetchList() {
+  'use cache';
 
-export const dynamic = 'force-static';
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=10000`, {
+    next: { revalidate: 86400, tags: ['poke-type-list'] },
+  });
+  return res.json();
+}
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
-    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=10000`, {
-      next: { revalidate: 86400, tags: ['poke-type-list'] },
-    });
-    return NextResponse.json(await res.json());
+    const data = await fetchList();
+    return Response.json(data);
   } catch (error: any) {
     console.error('Fetch Error:', error);
 
     if (error.response?.status === 404) {
-      return NextResponse.json({ error: 'Not Found' }, { status: 404 });
+      return Response.json({ error: 'Not Found' }, { status: 404 });
     }
 
-    return NextResponse.json(
+    return Response.json(
       { error: 'Internal Server Error' },
       { status: 500 }
     );
