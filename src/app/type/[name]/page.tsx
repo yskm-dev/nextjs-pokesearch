@@ -1,7 +1,5 @@
 import { PokeTypeSection } from '@/app/type/[name]/_components/PokeTypeSection';
 
-export const dynamic = 'force-static';
-
 type Props = {
   params: Promise<{ name: string }>;
 };
