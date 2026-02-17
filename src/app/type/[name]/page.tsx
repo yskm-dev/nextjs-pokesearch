@@ -6,6 +6,9 @@ type Props = {
 
 export default async function Page({ params }: Props) {
   const name = (await params).name;
-
-  return <PokeTypeSection name={name} />;
+  const res = await fetch(`https://pokeapi.co/api/v2/type/${name}`, {
+    next: { revalidate: 86400, tags: ['poke-type-list', name] },
+  });
+  const data = await res.json();
+  return <PokeTypeSection name={name} listData={data} />;
 }

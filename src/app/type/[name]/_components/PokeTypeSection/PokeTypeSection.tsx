@@ -4,14 +4,16 @@ import { PokeList } from '@/app/type/[name]/_components/PokeList';
 import { PokeDetail } from '@/components/PokeDetail';
 import { PokeTypeSearch } from '@/components/PokeTypeSearch';
 import { QCProvider } from '@/providers/QCProvider';
+import { PokeTypeListResponse } from '@/types/pokeAPI';
 import { useState } from 'react';
 import styles from './PokeTypeSection.module.scss';
 
 type Props = {
   name: string;
+  listData: PokeTypeListResponse;
 };
 
-export function PokeTypeSection({ name }: Props) {
+export function PokeTypeSection({ name, listData }: Props) {
   const [selectedType, setSelectedType] = useState(name);
   const [selectedPokemon, setSelectedPokemon] = useState('');
 
@@ -24,6 +26,7 @@ export function PokeTypeSection({ name }: Props) {
       <div className={styles.content}>
         <PokeList
           name={name}
+          data={listData}
           selectedPokemon={selectedPokemon}
           onSelect={setSelectedPokemon}
         />

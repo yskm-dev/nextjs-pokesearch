@@ -7,7 +7,7 @@ import { PokeTypeSearch } from '@/components/PokeTypeSearch';
 import { QCProvider } from '@/providers/QCProvider';
 import { useState } from 'react';
 
-export function HomePageClient() {
+export function HomePageClient({ listData }: { listData: any }) {
   const [selectedType, setSelectedType] = useState('');
   const [selectedPokemon, setSelectedPokemon] = useState('');
 
@@ -19,6 +19,7 @@ export function HomePageClient() {
       />
       <div className={styles.content}>
         <PokeList
+          data={listData}
           selectedPokemon={selectedPokemon}
           onSelect={setSelectedPokemon}
         />

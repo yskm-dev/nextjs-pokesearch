@@ -5,8 +5,8 @@ import type {
 } from '@/types/pokeAPI';
 
 // ポケモンAPIから一覧データを取得する関数
-export const fetchPokeList = async () => {
-  const response = await fetch(`/api/list?limit=10000`);
+export const fetchPokeList = async (customRequestInit?: RequestInit) => {
+  const response = await fetch(`/api/list?limit=10000`, customRequestInit);
   if (!response.ok) {
     throw new Error('ポケモン一覧の取得に失敗しました');
   }

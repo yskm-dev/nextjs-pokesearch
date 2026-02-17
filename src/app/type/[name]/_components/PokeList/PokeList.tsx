@@ -1,23 +1,19 @@
-import { fetchPokeTypeList } from '@/app/api/pokeAPI';
 import { PokeItem } from '@/components/PokeItem';
-import { useQuery } from '@tanstack/react-query';
+import { PokeTypeListResponse } from '@/types/pokeAPI';
 import { memo, useState } from 'react';
 import styles from './PokeList.module.scss';
 
 export const PokeList = memo(function PokeList({
   name,
+  data,
   selectedPokemon,
   onSelect,
 }: {
   name: string;
+  data: PokeTypeListResponse;
   selectedPokemon: string;
   onSelect: (name: string) => void;
 }) {
-  const { data, isLoading, isError, error } = useQuery({
-    queryKey: ['pokemonTypeList', name],
-    queryFn: () => fetchPokeTypeList(name),
-  });
-
   const [pokeResults, setPokeResults] = useState({
     results: data
       ? data.pokemon
@@ -42,25 +38,6 @@ export const PokeList = memo(function PokeList({
       .slice(startIndex, startIndex + 20);
     setPokeResults({ results: newResults });
     setCurrentPage(page);
-  }
-
-  if (isLoading) {
-    return (
-      <div className={styles.listPanel}>
-        <div className={styles.loading}>
-          <div className={styles.spinner} />
-          <p>読み込み中...</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (isError) {
-    return (
-      <div className={styles.listPanel}>
-        <p className={styles.error}>エラー: {error.message}</p>
-      </div>
-    );
   }
 
   if (!data) {
